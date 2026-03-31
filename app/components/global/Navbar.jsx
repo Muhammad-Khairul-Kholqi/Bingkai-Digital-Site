@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import Logo from "@/app/assets/logo.png";
+import Image from "next/image";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,19 +17,15 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Effect to prevent body scrolling when mobile menu is open
     useEffect(() => {
         if (isOpen) {
-            // Save the current scroll position
             const scrollY = window.scrollY;
             
-            // Prevent scrolling on body
             document.body.style.position = 'fixed';
             document.body.style.top = `-${scrollY}px`;
             document.body.style.width = '100%';
             
             return () => {
-                // Restore scrolling when menu closes
                 document.body.style.position = '';
                 document.body.style.top = '';
                 document.body.style.width = '';
@@ -60,8 +58,18 @@ export default function Navbar() {
                 }`}
             >
                 <div className="max-w-[1200px] mx-auto px-8 h-18 flex justify-between items-center">
-                    <a href="#" className="text-white text-xl tracking-wide font-semibold">
-                        Bingkai <span className="text-orange-500">Digital</span>
+                    <a href="#" className="flex items-center gap-3">
+                        <div className="relative h-10 w-10">
+                            <Image 
+                                src={Logo} 
+                                alt="Bingkai Digital Logo" 
+                                fill
+                                className="object-contain"
+                            />
+                        </div>
+                        <div className="text-white text-lg tracking-wide font-semibold">
+                            Bingkai <span className="text-orange-500">Digital</span>
+                        </div>
                     </a>
 
                     <div className="hidden md:flex items-center gap-8">

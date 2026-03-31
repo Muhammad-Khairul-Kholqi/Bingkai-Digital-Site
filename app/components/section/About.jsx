@@ -44,11 +44,9 @@ export default function AboutSection() {
                         <div className="flex gap-3 mt-4 flex-wrap">
                             <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg px-4 py-2.5 flex-1 min-w-[120px]">
                                 <div className="text-[0.65rem] text-orange-500 font-bold tracking-[0.08em] uppercase mb-1">Figma</div>
-                                {/* <div className="text-[0.82rem] font-semibold text-white">UI Kit Included</div> */}
                             </div>
                             <div className="bg-[rgba(99,132,235,0.08)] border border-[rgba(99,132,235,0.2)] rounded-lg px-4 py-2.5 flex-1 min-w-[120px]">
                                 <div className="text-[0.65rem] text-[#6384EB] font-bold tracking-[0.08em] uppercase mb-1">Code</div>
-                                {/* <div className="text-[0.82rem] font-semibold text-white">HTML/CSS Ready</div> */}
                             </div>
                         </div>
                     </div>
