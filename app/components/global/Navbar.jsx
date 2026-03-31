@@ -42,6 +42,28 @@ export default function Navbar() {
         setIsOpen(false);
     };
 
+    const handleSmoothScroll = (e, href) => {
+        e.preventDefault();
+        
+        if (isOpen) {
+            closeMenu();
+        }
+        
+        const targetId = href.replace('#', '');
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+            const navbarHeight = 72; 
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    };
+
     const navLinks = [
         { name: "Home", href: "#home" },
         { name: "About", href: "#about" },
@@ -58,7 +80,7 @@ export default function Navbar() {
                 }`}
             >
                 <div className="max-w-[1200px] mx-auto px-8 h-18 flex justify-between items-center">
-                    <a href="#" className="flex items-center gap-3">
+                    <a href="#" className="flex items-center gap-3" onClick={(e) => handleSmoothScroll(e, "#home")}>
                         <div className="relative h-10 w-10">
                             <Image 
                                 src={Logo} 
@@ -77,6 +99,7 @@ export default function Navbar() {
                             <a
                                 key={index}
                                 href={link.href}
+                                onClick={(e) => handleSmoothScroll(e, link.href)}
                                 className="text-[#888] text-sm font-medium uppercase tracking-wide hover:text-white transition-colors"
                             >
                                 {link.name}
@@ -87,6 +110,7 @@ export default function Navbar() {
                     <a
                         href="https://lynk.id/bingkaidigital.id"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="hidden md:inline-flex items-center gap-2 text-black text-sm font-semibold uppercase tracking-wider bg-orange-500 px-5 py-2 rounded-md hover:bg-orange-400 hover:-translate-y-0.5 transition-all"
                     >
                         View Templates
@@ -138,8 +162,8 @@ export default function Navbar() {
                                 <a
                                     key={index}
                                     href={link.href}
+                                    onClick={(e) => handleSmoothScroll(e, link.href)}
                                     className="px-8 py-4 text-[#888] hover:text-white hover:bg-white/5 transition-all text-lg tracking-wider"
-                                    onClick={closeMenu}
                                 >
                                     {link.name}
                                 </a>
@@ -150,6 +174,7 @@ export default function Navbar() {
                             <a
                                 href="https://lynk.id/bingkaidigital.id"
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 className="flex items-center justify-center gap-2 text-center text-black tracking-widest font-bold bg-orange-500 px-5 py-3 rounded-md hover:bg-orange-400 transition-all"
                                 onClick={closeMenu}
                             >

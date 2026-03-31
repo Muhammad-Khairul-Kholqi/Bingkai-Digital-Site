@@ -1,4 +1,3 @@
-// app/components/section/FeaturesSection.jsx
 import { featuresData } from '@/app/data/static/features';
 import {
     LayoutGrid,
@@ -13,7 +12,6 @@ import {
 } from 'lucide-react';
 
 export default function FeaturesSection() {
-    // Map icon names to Lucide components
     const getIcon = (iconName) => {
         const iconProps = {
             size: 18,
@@ -46,9 +44,8 @@ export default function FeaturesSection() {
     };
 
     return (
-        <section id="features" className="py-24 px-8 bg-[#0A0A0A]">
+        <section id="services" className="py-24 px-8 bg-[#0A0A0A]">
             <div className="max-w-7xl mx-auto">
-                {/* Header */}
                 <div className="flex items-end justify-between gap-8 flex-wrap mb-16">
                     <div>
                         <div className="flex items-center gap-2 text-orange-500 text-xs font-bold tracking-[0.14em] uppercase mb-4">
@@ -65,29 +62,24 @@ export default function FeaturesSection() {
                     </p>
                 </div>
 
-                {/* Features Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-800 rounded-2xl overflow-hidden">
                     {featuresData.map((feature) => (
                         <div
                             key={feature.id}
                             className="group bg-[#111111] p-8 transition-all duration-300 hover:bg-[#161616] relative"
                         >
-                            {/* Icon */}
                             <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110">
                                 {getIcon(feature.icon)}
                             </div>
 
-                            {/* Title */}
                             <h3 className="text-white font-bold text-sm mb-1.5">
                                 {feature.title}
                             </h3>
 
-                            {/* Description */}
                             <p className="text-gray-500 text-xs leading-relaxed">
                                 {feature.description}
                             </p>
 
-                            {/* Bottom Border Animation */}
                             <div className="absolute bottom-0 left-8 right-8 h-0.5 bg-orange-500 scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100"></div>
                         </div>
                     ))}
