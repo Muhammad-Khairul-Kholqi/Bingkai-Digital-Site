@@ -1,6 +1,7 @@
 import "@/app/styles/globals.css";
 import Navbar from "@/app/components/global/Navbar";
 import CustomCursor from "@/app/components/global/CustomCursor";
+import FooterSection from "./components/global/Footer";
 import { Plus_Jakarta_Sans } from "next/font/google";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
         <CustomCursor />
         <Navbar />
         {children}
+        <FooterSection />
       </body>
     </html>
   );

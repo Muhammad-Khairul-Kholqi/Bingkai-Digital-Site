@@ -1,4 +1,3 @@
-// app/components/section/SocialSection.jsx
 import { socialData } from '@/app/data/static/social';
 
 export default function SocialSection() {
@@ -44,7 +43,6 @@ export default function SocialSection() {
     return (
         <section id="social" className="bg-[#111111] py-24 px-8">
             <div className="max-w-7xl mx-auto">
-                {/* Header */}
                 <div className="text-center mb-12">
                     <div className="flex items-center justify-center gap-2 text-orange-500 text-xs font-bold tracking-[0.14em] uppercase mb-4">
                         <div className="h-px bg-gray-800 w-12"></div>
@@ -57,7 +55,6 @@ export default function SocialSection() {
                     </h2>
                 </div>
 
-                {/* Social Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {socialData.map((social) => (
                         <a
@@ -67,7 +64,6 @@ export default function SocialSection() {
                             rel="noopener noreferrer"
                             className={`group rounded-2xl p-8 border border-gray-800 bg-[#111111] transition-all duration-300 hover:-translate-y-1.5 ${getBorderColor(social.color)} hover:border-transparent relative overflow-hidden`}
                         >
-                            {/* Social Name */}
                             <div className="mb-4">
                                 <div className="text-gray-500 text-[0.65rem] font-bold tracking-[0.1em] uppercase mb-1">
                                     {social.name === "Lynk.id" ? "Shop on" : social.name === "Instagram" ? "Follow on" : "Like on"}
@@ -77,17 +73,14 @@ export default function SocialSection() {
                                 </div>
                             </div>
 
-                            {/* Handle */}
                             <div className="text-gray-400 text-sm mb-3">
                                 {social.handle}
                             </div>
 
-                            {/* Description */}
                             <p className="text-gray-500 text-xs mb-4">
                                 {social.description}
                             </p>
 
-                            {/* Button */}
                             <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-700 text-gray-500 text-xs font-semibold transition-all duration-300 ${getButtonBg(social.color)} group-hover:text-white group-hover:border-transparent`}>
                                 <span>{social.name === "Lynk.id" ? "Shop Now" : social.name === "Instagram" ? "Follow" : "Like"}</span>
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -96,7 +89,6 @@ export default function SocialSection() {
                                 </svg>
                             </div>
 
-                            {/* Background Glow Effect */}
                             <div className={`absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none ${
                                 social.color === 'instagram' ? 'bg-gradient-to-br from-pink-500/5 via-pink-500/5 to-pink-500/5' :
                                 social.color === 'orange' ? 'bg-orange-500/5' :
@@ -104,13 +96,6 @@ export default function SocialSection() {
                             }`}></div>
                         </a>
                     ))}
-                </div>
-
-                {/* Follow Stats */}
-                <div className="text-center mt-12">
-                    <p className="text-gray-500 text-sm">
-                        Join our growing community of 10,000+ creators and developers
-                    </p>
                 </div>
             </div>
         </section>
