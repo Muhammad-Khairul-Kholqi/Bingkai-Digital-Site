@@ -24,6 +24,7 @@ export default function RootLayout({ children }) {
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+        <meta name="google-site-verification" content="T_2_b1DfuXVFG2mxtyaRZxlKtM-ClYq0gPMKQmlHynI" />
         <MetaHandler />
       </head>
       <body className={plusJakartaSans.className}>
