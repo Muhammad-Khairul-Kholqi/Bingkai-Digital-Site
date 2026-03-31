@@ -15,6 +15,27 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    // Effect to prevent body scrolling when mobile menu is open
+    useEffect(() => {
+        if (isOpen) {
+            // Save the current scroll position
+            const scrollY = window.scrollY;
+            
+            // Prevent scrolling on body
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollY}px`;
+            document.body.style.width = '100%';
+            
+            return () => {
+                // Restore scrolling when menu closes
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.style.width = '';
+                window.scrollTo(0, scrollY);
+            };
+        }
+    }, [isOpen]);
+
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
@@ -104,7 +125,7 @@ export default function Navbar() {
                             </button>
                         </div>
 
-                        <div className="flex-1 flex flex-col py-8">
+                        <div className="flex-1 flex flex-col py-8 overflow-y-auto">
                             {navLinks.map((link, index) => (
                                 <a
                                     key={index}

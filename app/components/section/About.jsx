@@ -3,7 +3,6 @@ export default function AboutSection() {
         <section id="about" className="py-24 px-8 bg-[#0A0A0A]">
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                    {/* Left Side - Content */}
                     <div>
                         <div className="flex items-center gap-2 text-orange-500 text-xs font-bold tracking-[0.14em] uppercase mb-4">
                             <span>About Us</span>
@@ -18,23 +17,9 @@ export default function AboutSection() {
                         <p className="text-gray-400 text-[0.95rem] leading-relaxed">
                             Each template is structured cleanly, responsive, and optimized for fast development workflow - so you ship faster and look professional from day one.
                         </p>
-
-                        <div className="flex gap-8 mt-10 pt-8 border-t border-gray-800">
-                            <div>
-                                <div className="text-5xl text-orange-500 leading-none">10+</div>
-                                <div className="text-xs text-gray-500 mt-1">Templates Available</div>
-                            </div>
-                            <div className="w-px bg-gray-800"></div>
-                            <div>
-                                <div className="text-5xl text-orange-500 leading-none">2</div>
-                                <div className="text-xs text-gray-500 mt-1">Asset Categories</div>
-                            </div>
-                        </div>
                     </div>
 
-                    {/* Right Side - Code Preview Card */}
                     <div className="bg-[#111111] border border-gray-800 rounded-2xl p-8 relative overflow-hidden">
-                        {/* Simulated terminal / code editor preview */}
                         <div className="bg-black rounded-lg overflow-hidden border border-gray-800">
                             <div className="bg-[#1a1a1a] px-4 py-2.5 flex items-center gap-2 border-b border-gray-800">
                                 <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></span>
@@ -59,11 +44,11 @@ export default function AboutSection() {
                         <div className="flex gap-3 mt-4 flex-wrap">
                             <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg px-4 py-2.5 flex-1 min-w-[120px]">
                                 <div className="text-[0.65rem] text-orange-500 font-bold tracking-[0.08em] uppercase mb-1">Figma</div>
-                                <div className="text-[0.82rem] font-semibold text-white">UI Kit Included</div>
+                                {/* <div className="text-[0.82rem] font-semibold text-white">UI Kit Included</div> */}
                             </div>
                             <div className="bg-[rgba(99,132,235,0.08)] border border-[rgba(99,132,235,0.2)] rounded-lg px-4 py-2.5 flex-1 min-w-[120px]">
                                 <div className="text-[0.65rem] text-[#6384EB] font-bold tracking-[0.08em] uppercase mb-1">Code</div>
-                                <div className="text-[0.82rem] font-semibold text-white">HTML/CSS Ready</div>
+                                {/* <div className="text-[0.82rem] font-semibold text-white">HTML/CSS Ready</div> */}
                             </div>
                         </div>
                     </div>
