@@ -1,0 +1,12 @@
+import HeroSection from "@/app/components/section/Hero";
+import SlidderSection from "@/app/components/section/Slidder";
+
+export default function Home() {
+  return (
+    <div>
+      <HeroSection />
+      <SlidderSection />
+      <div className="text-5xl">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum sapiente quo quod provident architecto minima illum expedita, est accusantium repudiandae similique! Dolor, eos asperiores laudantium nobis minima officiis. Iste aut vitae unde repellendus provident asperiores voluptates quasi veniam harum libero illum, sit ut sapiente ad a modi saepe amet recusandae maxime eaque pariatur ratione omnis, aspernatur quae! Saepe sunt perspiciatis harum assumenda perferendis, libero quas praesentium obcaecati qui ipsa voluptatem totam veniam cupiditate esse hic quibusdam delectus blanditiis, ad amet iusto, labore tempore impedit et? Neque voluptates velit quo rerum voluptatum expedita ratione impedit iure officia, veniam quos assumenda blanditiis repudiandae in fugiat consequatur corrupti porro saepe est accusamus labore aperiam vel! Quis iusto dolores eveniet, aut qui, voluptas maxime animi numquam enim beatae accusamus quo. Quidem, consequuntur. Eaque dolore alias voluptatem beatae quia, obcaecati veniam accusamus, ea similique illum at voluptatibus sequi harum asperiores modi, quibusdam aliquam inventore odit neque ipsa. Ab corrupti unde veritatis totam sed perferendis velit dolor rem et corporis veniam amet consequuntur nulla quisquam, reiciendis, architecto quos aperiam soluta, hic possimus sunt itaque aut! Adipisci in aut assumenda ipsa deleniti tempore incidunt nostrum facere ut? Sint, ipsa temporibus obcaecati ullam ad voluptate est neque totam illum vel dolore animi quod eveniet, similique molestias placeat ducimus blanditiis consequuntur facere! Aliquam atque corrupti maiores, nihil ut consequuntur reiciendis quibusdam explicabo dolor sed ullam id molestias molestiae beatae veniam culpa consectetur doloremque earum? Molestias libero reprehenderit iure quo, tempora, quos sed eius laboriosam blanditiis accusamus dolore tempore tenetur eveniet quam dignissimos debitis adipisci minus recusandae esse! Dolorum earum beatae repellat aliquam assumenda maxime. Ipsa eaque incidunt quaerat repellendus quod maxime sint nam qui atque quia fuga sequi praesentium blanditiis molestias, libero similique ex soluta delectus. Eaque assumenda aliquid error. Quia minima labore dolore earum rerum ipsam molestias eveniet.</div>
+    </div>
+  );
+}

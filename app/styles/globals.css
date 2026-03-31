@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+a, button, [role="button"], input, textarea, .cursor-pointer {
+  cursor: none;
+}
+
+@media (max-width: 768px) {
+  .cursor-dot, .cursor-ring {
+    display: none;
+  }
+  
+  a, button, [role="button"], input, textarea, .cursor-pointer {
+    cursor: auto;
+  }
+}
