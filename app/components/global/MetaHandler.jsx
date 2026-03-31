@@ -6,7 +6,6 @@ export default function MetaHandler() {
   useEffect(() => {
     const currentYear = new Date().getFullYear();
     
-    // Navbar links data untuk breadcrumb
     const navLinks = [
       { name: "Home", href: "#home", url: "https://bingkaidigital.vercel.app" },
       { name: "About", href: "#about", url: "https://bingkaidigital.vercel.app/#about" },
@@ -24,7 +23,7 @@ export default function MetaHandler() {
       siteName: "Bingkai Digital",
       phone: "+62895329761084",
       year: currentYear,
-      googleVerification: "T_2_b1DfuXVFG2mxtyaRZxlKtM-ClYq0gPMKQmlHynI" // Ganti dengan code dari Google Search Console
+      googleVerification: "T_2_b1DfuXVFG2mxtyaRZxlKtM-ClYq0gPMKQmlHynI"
     };
 
     const updateMetaTag = (attribute, attributeValue, content) => {
@@ -82,12 +81,10 @@ export default function MetaHandler() {
       }
     };
 
-    // Update Title
     if (metaData.title) {
       document.title = metaData.title;
     }
 
-    // Update Favicon
     const existingFavicons = document.querySelectorAll("link[rel*='icon']");
     existingFavicons.forEach(link => link.remove());
     
@@ -102,10 +99,8 @@ export default function MetaHandler() {
     appleIcon.href = metaData.imageUrl;
     document.head.appendChild(appleIcon);
 
-    // Google Search Console Verification
     updateMetaTag('name', 'google-site-verification', metaData.googleVerification);
     
-    // Update Meta Tags - Basic
     updateMetaTag('name', 'description', metaData.description);
     updateMetaTag('name', 'keywords', metaData.keywords);
     updateMetaTag('name', 'author', 'Bingkai Digital');
@@ -122,7 +117,6 @@ export default function MetaHandler() {
     updateMetaTag('name', 'geo.position', '-6.2088;106.8456');
     updateMetaTag('name', 'ICBM', '-6.2088, 106.8456');
 
-    // Open Graph / Facebook
     updateMetaTag('property', 'og:type', 'website');
     updateMetaTag('property', 'og:url', metaData.url);
     updateMetaTag('property', 'og:title', metaData.title);
@@ -136,7 +130,6 @@ export default function MetaHandler() {
     updateMetaTag('property', 'og:locale:alternate', 'en_US');
     updateMetaTag('property', 'og:phone_number', metaData.phone);
 
-    // Update Link Tags
     updateLinkTag('canonical', metaData.url);
     updateLinkTag('alternate', metaData.url, { hrefLang: 'x-default' });
     updateLinkTag('alternate', `${metaData.url}/id`, { hrefLang: 'id' });
@@ -146,7 +139,6 @@ export default function MetaHandler() {
     updateLinkTag('preconnect', 'https://fonts.gstatic.com', { crossOrigin: 'anonymous' });
     updateLinkTag('dns-prefetch', 'https://fonts.googleapis.com');
 
-    // Structured Data - Organization
     addStructuredData({
       "@context": "https://schema.org",
       "@type": "Organization",
@@ -157,9 +149,9 @@ export default function MetaHandler() {
       "description": metaData.description,
       "telephone": metaData.phone,
       "sameAs": [
-        "https://instagram.com/bingkaidigital",
-        "https://facebook.com/bingkaidigital",
-        "https://lynk.id/bingkaidigital"
+        "https://instagram.com/bingkaidigital.id",
+        "https://www.facebook.com/people/Bingkai-Digital/61574308463362",
+        "https://lynk.id/bingkaidigital.id"
       ],
       "foundingDate": "2020",
       "contactPoint": {
@@ -170,7 +162,6 @@ export default function MetaHandler() {
       }
     }, 'organization-schema');
 
-    // Structured Data - Website
     addStructuredData({
       "@context": "https://schema.org",
       "@type": "WebSite",
@@ -187,7 +178,6 @@ export default function MetaHandler() {
       }
     }, 'website-schema');
 
-    // Structured Data - BreadcrumbList (dinamis dari navbar)
     const breadcrumbItems = navLinks.map((link, index) => ({
       "@type": "ListItem",
       "position": index + 1,
