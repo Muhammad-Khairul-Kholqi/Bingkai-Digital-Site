@@ -12,7 +12,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata = {
   title: {
-    default: "Bingkai Digital — UI Kits & Web Templates",
+    default: "Bingkai Digital | UI Kits & Web Templates",
     template: "%s | Bingkai Digital"
   },
   description: "Ready-to-use Figma UI kits and website code templates to help developers, startups, and creators launch landing pages faster. Modern design, clean code, and SEO optimized.",

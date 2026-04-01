@@ -15,7 +15,7 @@ export default function MetaHandler() {
     ];
     
     const metaData = {
-      title: "Bingkai Digital — UI Kits & Web Templates",
+      title: "Bingkai Digital | UI Kits & Web Templates",
       description: "Ready-to-use Figma UI kits and website code templates to help developers, startups, and creators launch landing pages faster. Modern design, clean code, and SEO optimized.",
       keywords: "UI Kits, Web Templates, Figma UI Kits, HTML Templates, SaaS Landing Page, Portfolio Template, Developer Tools, Website Templates, Bingkai Digital, UI Design, Responsive Templates, Modern UI Kits, Web Development, Startup Templates, Landing Page Design",
       imageUrl: "/logo.png",

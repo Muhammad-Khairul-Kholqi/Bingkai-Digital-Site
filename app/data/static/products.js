@@ -146,5 +146,153 @@ export const productsData = {
             badgeColor: "blue",
             category: "code"
         }
+    ],
+    components: [
+        {
+            id: 1,
+            number: "01",
+            title: "Navbar Components",
+            description: "20+ responsive navbar variations including mega menus, mobile menus, and sticky headers.",
+            badge: "Component Pack",
+            badgeColor: "purple",
+            category: "components"
+        },
+        {
+            id: 2,
+            number: "02",
+            title: "Button Library",
+            description: "50+ button styles with hover effects, loading states, and interactive animations.",
+            badge: "Component Pack",
+            badgeColor: "purple",
+            category: "components"
+        },
+        {
+            id: 3,
+            number: "03",
+            title: "Card Designs",
+            description: "30+ card components for products, blog posts, testimonials, and user profiles.",
+            badge: "Component Pack",
+            badgeColor: "purple",
+            category: "components"
+        },
+        {
+            id: 4,
+            number: "04",
+            title: "Pricing Tables",
+            description: "15+ pricing table layouts with toggle switches, feature lists, and payment badges.",
+            badge: "Component Pack",
+            badgeColor: "purple",
+            category: "components"
+        },
+        {
+            id: 5,
+            number: "05",
+            title: "Hero Sections",
+            description: "25+ hero section designs with video backgrounds, animations, and gradient overlays.",
+            badge: "Component Pack",
+            badgeColor: "purple",
+            category: "components"
+        },
+        {
+            id: 6,
+            number: "06",
+            title: "FAQ Components",
+            description: "10+ FAQ layouts with accordion styles, tabbed interfaces, and search functionality.",
+            badge: "Component Pack",
+            badgeColor: "purple",
+            category: "components"
+        },
+        {
+            id: 7,
+            number: "07",
+            title: "Form Elements",
+            description: "40+ form components including inputs, selects, checkboxes, and validation states.",
+            badge: "Component Pack",
+            badgeColor: "purple",
+            category: "components"
+        },
+        {
+            id: 8,
+            number: "08",
+            title: "Complete UI System",
+            description: "All components bundled together with design tokens and usage documentation.",
+            badge: "Component Pack",
+            badgeColor: "purple",
+            category: "components"
+        }
+    ],
+    bundle: [
+        {
+            id: 1,
+            number: "01",
+            title: "Ultimate UI Bundle",
+            description: "5 complete UI templates + 50+ reusable components. Save 40% compared to individual purchase.",
+            badge: "Bundle Pack",
+            badgeColor: "green",
+            category: "bundle"
+        },
+        {
+            id: 2,
+            number: "02",
+            title: "Full Stack Developer Bundle",
+            description: "3 complete website code templates + component library. Perfect for freelancers.",
+            badge: "Bundle Pack",
+            badgeColor: "green",
+            category: "bundle"
+        },
+        {
+            id: 3,
+            number: "03",
+            title: "Component Master Pack",
+            description: "200+ components across all categories. Everything you need for rapid development.",
+            badge: "Bundle Pack",
+            badgeColor: "green",
+            category: "bundle"
+        },
+        {
+            id: 4,
+            number: "04",
+            title: "SaaS Starter Bundle",
+            description: "5 SaaS landing pages + dashboard templates + authentication flows. Complete solution.",
+            badge: "Bundle Pack",
+            badgeColor: "green",
+            category: "bundle"
+        },
+        {
+            id: 5,
+            number: "05",
+            title: "E-commerce Mega Bundle",
+            description: "3 store themes + product pages + cart system + payment integration templates.",
+            badge: "Bundle Pack",
+            badgeColor: "green",
+            category: "bundle"
+        },
+        {
+            id: 6,
+            number: "06",
+            title: "Portfolio Pro Bundle",
+            description: "5 developer portfolio templates + case study layouts + contact form components.",
+            badge: "Bundle Pack",
+            badgeColor: "green",
+            category: "bundle"
+        },
+        {
+            id: 7,
+            number: "07",
+            title: "Agency Essentials Pack",
+            description: "Creative agency templates + client management components + proposal layouts.",
+            badge: "Bundle Pack",
+            badgeColor: "green",
+            category: "bundle"
+        },
+        {
+            id: 8,
+            number: "08",
+            title: "Complete Design System",
+            description: "UI kits + code templates + component library + documentation. All-in-one package.",
+            badge: "Bundle Pack",
+            badgeColor: "green",
+            category: "bundle"
+        }
     ]
 };

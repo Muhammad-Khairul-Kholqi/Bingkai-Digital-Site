@@ -8,8 +8,15 @@ export default function ProductsSection() {
 
     const currentProducts = productsData[activeTab];
 
+    const tabs = [
+        { id: 'figma', label: 'UI Kits'},
+        { id: 'code', label: 'Code Templates'},
+        { id: 'components', label: 'UI Components'},
+        { id: 'bundle', label: 'Bundle Pack'}
+    ];
+
     return (
-        <section id="products" className="bg-[#111111] py-24 px-8">
+        <section id="products" className="bg-[#111111] py-24 px-4 sm:px-8">
             <div className="max-w-7xl mx-auto">
                 <div className="flex items-end justify-between gap-8 flex-wrap mb-12">
                     <div>
@@ -27,30 +34,45 @@ export default function ProductsSection() {
                     </p>
                 </div>
 
-                <div className="flex border border-gray-800 rounded-lg overflow-hidden w-fit mb-10">
-                    <button
-                        onClick={() => setActiveTab('figma')}
-                        className={`px-5 py-2 text-sm font-semibold tracking-wide transition-all duration-200 ${
-                            activeTab === 'figma'
-                                ? 'bg-orange-500 text-white'
-                                : 'bg-transparent text-gray-500 hover:text-gray-300'
-                        }`}
-                    >
-                        Figma UI Kits
-                    </button>
-                    <button
-                        onClick={() => setActiveTab('code')}
-                        className={`px-5 py-2 text-sm font-semibold tracking-wide transition-all duration-200 ${
-                            activeTab === 'code'
-                                ? 'bg-orange-500 text-white'
-                                : 'bg-transparent text-gray-500 hover:text-gray-300'
-                        }`}
-                    >
-                        Code Templates
-                    </button>
+                <div className="mb-10">
+                    <div className="flex overflow-x-auto scrollbar-hide lg:overflow-visible lg:justify-start border-b border-gray-800 pb-px">
+                        <div className="flex gap-1 min-w-max lg:min-w-0">
+                            {tabs.map((tab) => (
+                                <button
+                                    key={tab.id}
+                                    onClick={() => setActiveTab(tab.id)}
+                                    className={`
+                                        relative px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold 
+                                        transition-all duration-300 rounded-lg whitespace-nowrap
+                                        ${activeTab === tab.id 
+                                            ? 'text-white' 
+                                            : 'text-gray-500 hover:text-gray-300'
+                                        }
+                                    `}
+                                >
+                                    <span className="flex items-center gap-2 uppercase tracking-wider">
+                                        <span>{tab.label}</span>
+                                    </span>
+                                    
+                                    {activeTab === tab.id && (
+                                        <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-orange-500 rounded-full" />
+                                    )}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                    
+                    <div className="lg:hidden flex justify-center mt-2">
+                        <span className="text-[10px] text-gray-600 flex items-center gap-1">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <polyline points="9 18 15 12 9 6"/>
+                            </svg>
+                            Scroll for more
+                        </span>
+                    </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                     {currentProducts.map((product) => (
                         <div
                             key={product.id}
@@ -63,7 +85,11 @@ export default function ProductsSection() {
                             <span className={`inline-flex items-center gap-1.5 text-[0.65rem] font-bold tracking-[0.08em] uppercase px-2 py-1 rounded mb-4 ${
                                 product.badgeColor === 'orange'
                                     ? 'bg-orange-500/10 text-orange-500'
-                                    : 'bg-blue-500/10 text-blue-400'
+                                    : product.badgeColor === 'blue'
+                                    ? 'bg-blue-500/10 text-blue-400'
+                                    : product.badgeColor === 'purple'
+                                    ? 'bg-purple-500/10 text-purple-400'
+                                    : 'bg-green-500/10 text-green-400'
                             }`}>
                                 {product.badgeColor === 'orange' ? (
                                     <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
@@ -73,10 +99,19 @@ export default function ProductsSection() {
                                         <path d="M5 19.5A3.5 3.5 0 018.5 16H12v3.5a3.5 3.5 0 11-7 0z"/>
                                         <path d="M5 12.5A3.5 3.5 0 018.5 9H12v7H8.5A3.5 3.5 0 015 12.5z"/>
                                     </svg>
-                                ) : (
+                                ) : product.badgeColor === 'blue' ? (
                                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                                         <polyline points="16 18 22 12 16 6"/>
                                         <polyline points="8 6 2 12 8 18"/>
+                                    </svg>
+                                ) : product.badgeColor === 'purple' ? (
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+                                        <rect x="2" y="2" width="20" height="20" rx="4" fill="currentColor"/>
+                                        <path d="M8 12h8M12 8v8" stroke="white" strokeWidth="1.5"/>
+                                    </svg>
+                                ) : (
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
                                     </svg>
                                 )}
                                 {product.badge}
@@ -93,6 +128,16 @@ export default function ProductsSection() {
                     ))}
                 </div>
             </div>
+
+            <style jsx>{`
+                .scrollbar-hide {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                }
+                .scrollbar-hide::-webkit-scrollbar {
+                    display: none;
+                }
+            `}</style>
         </section>
     );
 }
