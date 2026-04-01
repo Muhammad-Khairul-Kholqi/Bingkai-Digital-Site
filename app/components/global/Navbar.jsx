@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import Logo from "@/app/assets/logo.png";
 import Image from "next/image";
@@ -8,6 +8,7 @@ import Image from "next/image";
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const menuRef = useRef(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -17,10 +18,10 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    // Improved mobile menu scroll lock
     useEffect(() => {
         if (isOpen) {
             const scrollY = window.scrollY;
-            
             document.body.style.position = 'fixed';
             document.body.style.top = `-${scrollY}px`;
             document.body.style.width = '100%';
@@ -42,25 +43,37 @@ export default function Navbar() {
         setIsOpen(false);
     };
 
-    const handleSmoothScroll = (e, href) => {
-        e.preventDefault();
-        
-        if (isOpen) {
-            closeMenu();
-        }
-        
-        const targetId = href.replace('#', '');
-        const targetElement = document.getElementById(targetId);
-        
-        if (targetElement) {
-            const navbarHeight = 72; 
-            const elementPosition = targetElement.getBoundingClientRect().top;
+    const scrollToSection = (elementId) => {
+        const element = document.getElementById(elementId);
+        if (element) {
+            const navbarHeight = 72;
+            const elementPosition = element.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
             
             window.scrollTo({
                 top: offsetPosition,
                 behavior: 'smooth'
             });
+        }
+    };
+
+    const handleSmoothScroll = (e, href) => {
+        e.preventDefault();
+        
+        const targetId = href.replace('#', '');
+        
+        // If mobile menu is open
+        if (isOpen) {
+            // Close the menu first
+            setIsOpen(false);
+            
+            // Wait for menu close animation and body scroll restoration
+            setTimeout(() => {
+                scrollToSection(targetId);
+            }, 300); // Wait for menu close animation (300ms)
+        } else {
+            // Direct scroll for desktop
+            scrollToSection(targetId);
         }
     };
 
@@ -80,13 +93,18 @@ export default function Navbar() {
                 }`}
             >
                 <div className="max-w-[1200px] mx-auto px-8 h-18 flex justify-between items-center">
-                    <a href="#" className="flex items-center gap-3" onClick={(e) => handleSmoothScroll(e, "#home")}>
+                    <a 
+                        href="#" 
+                        className="flex items-center gap-3 cursor-pointer" 
+                        onClick={(e) => handleSmoothScroll(e, "#home")}
+                    >
                         <div className="relative h-10 w-10">
                             <Image 
                                 src={Logo} 
                                 alt="Bingkai Digital Logo" 
                                 fill
                                 className="object-contain"
+                                priority
                             />
                         </div>
                         <div className="text-white text-lg tracking-wide font-semibold">
@@ -94,13 +112,14 @@ export default function Navbar() {
                         </div>
                     </a>
 
+                    {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8">
                         {navLinks.map((link, index) => (
                             <a
                                 key={index}
                                 href={link.href}
                                 onClick={(e) => handleSmoothScroll(e, link.href)}
-                                className="text-[#888] text-sm font-medium uppercase tracking-wide hover:text-white transition-colors"
+                                className="text-[#888] text-sm font-medium uppercase tracking-wide hover:text-white transition-colors cursor-pointer"
                             >
                                 {link.name}
                             </a>
@@ -126,20 +145,24 @@ export default function Navbar() {
                 </div>
             </nav>
 
+            {/* Mobile Menu Overlay */}
             <div
                 className={`fixed inset-0 z-50 md:hidden transition-all duration-300 ease-in-out ${
-                    isOpen ? "visible" : "invisible"
+                    isOpen ? "visible pointer-events-auto" : "invisible pointer-events-none"
                 }`}
             >
+                {/* Backdrop */}
                 <div
-                    className={`absolute inset-0 bg-black/50 transition-opacity duration-300 ${
+                    className={`absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity duration-300 ${
                         isOpen ? "opacity-100" : "opacity-0"
                     }`}
                     onClick={closeMenu}
                 />
 
+                {/* Menu Panel */}
                 <div
-                    className={`absolute top-0 right-0 h-full w-full max-w-sm bg-black border-l border-white/20 shadow-xl transform transition-transform duration-300 ease-in-out ${
+                    ref={menuRef}
+                    className={`absolute top-0 right-0 h-full w-full max-w-sm bg-black/95 border-l border-white/20 shadow-xl transform transition-transform duration-300 ease-in-out ${
                         isOpen ? "translate-x-0" : "translate-x-full"
                     }`}
                 >
@@ -162,8 +185,19 @@ export default function Navbar() {
                                 <a
                                     key={index}
                                     href={link.href}
-                                    onClick={(e) => handleSmoothScroll(e, link.href)}
-                                    className="px-8 py-4 text-[#888] hover:text-white hover:bg-white/5 transition-all text-lg tracking-wider"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        const targetId = link.href.replace('#', '');
+                                        
+                                        // Close menu
+                                        setIsOpen(false);
+                                        
+                                        // Scroll to section after menu closes
+                                        setTimeout(() => {
+                                            scrollToSection(targetId);
+                                        }, 300);
+                                    }}
+                                    className="px-8 py-4 text-[#888] hover:text-white hover:bg-white/5 transition-all text-lg tracking-wider cursor-pointer block"
                                 >
                                     {link.name}
                                 </a>
