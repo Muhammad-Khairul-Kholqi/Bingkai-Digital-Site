@@ -35,7 +35,7 @@ export default function ProductsSection() {
                 </div>
 
                 <div className="mb-10">
-                    <div className="flex overflow-x-auto scrollbar-hide lg:overflow-visible lg:justify-start border-b border-gray-800 pb-px">
+                    <div className="flex overflow-x-auto scrollbar-hide lg:overflow-visible lg:justify-start">
                         <div className="flex gap-1 min-w-max lg:min-w-0">
                             {tabs.map((tab) => (
                                 <button

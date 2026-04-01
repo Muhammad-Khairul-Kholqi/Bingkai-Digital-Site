@@ -18,7 +18,6 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Improved mobile menu scroll lock
     useEffect(() => {
         if (isOpen) {
             const scrollY = window.scrollY;
@@ -62,17 +61,13 @@ export default function Navbar() {
         
         const targetId = href.replace('#', '');
         
-        // If mobile menu is open
         if (isOpen) {
-            // Close the menu first
             setIsOpen(false);
             
-            // Wait for menu close animation and body scroll restoration
             setTimeout(() => {
                 scrollToSection(targetId);
-            }, 300); // Wait for menu close animation (300ms)
+            }, 300);
         } else {
-            // Direct scroll for desktop
             scrollToSection(targetId);
         }
     };
@@ -112,7 +107,6 @@ export default function Navbar() {
                         </div>
                     </a>
 
-                    {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8">
                         {navLinks.map((link, index) => (
                             <a
@@ -145,13 +139,11 @@ export default function Navbar() {
                 </div>
             </nav>
 
-            {/* Mobile Menu Overlay */}
             <div
                 className={`fixed inset-0 z-50 md:hidden transition-all duration-300 ease-in-out ${
                     isOpen ? "visible pointer-events-auto" : "invisible pointer-events-none"
                 }`}
             >
-                {/* Backdrop */}
                 <div
                     className={`absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity duration-300 ${
                         isOpen ? "opacity-100" : "opacity-0"
@@ -159,7 +151,6 @@ export default function Navbar() {
                     onClick={closeMenu}
                 />
 
-                {/* Menu Panel */}
                 <div
                     ref={menuRef}
                     className={`absolute top-0 right-0 h-full w-full max-w-sm bg-black/95 border-l border-white/20 shadow-xl transform transition-transform duration-300 ease-in-out ${
@@ -189,10 +180,8 @@ export default function Navbar() {
                                         e.preventDefault();
                                         const targetId = link.href.replace('#', '');
                                         
-                                        // Close menu
                                         setIsOpen(false);
                                         
-                                        // Scroll to section after menu closes
                                         setTimeout(() => {
                                             scrollToSection(targetId);
                                         }, 300);
